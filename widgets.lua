@@ -10,7 +10,8 @@ local theme = {
   foreground = c.pink,
   background = c.base,
   secondary = c.blue,
-  fade = c.surface2
+  fade = c.surface2,
+  fade2 = c.surface0
 }
 
 widgets.battery = {
@@ -153,6 +154,25 @@ widgets.music = {
   },
   command = "lua ./music.lua",
   len = 27,
+  interval = 0.1,
+  inner_gap = 1
+}
+
+widgets.volumebar = {
+  color = {
+    foreground = theme.secondary,
+    background = theme.background,
+    muted = theme.fade,
+    high = theme.foreground,
+    barbg = theme.fade2
+  },
+  action = {
+    lclick = "amixer set Master toggle -q",
+    scrollup = "amixer set Master 5%+ -q",
+    scrolldown = "amixer set Master 5%- -q"
+  },
+  command = "lua ./volumebar.lua",
+  len = 13,
   interval = 0.1,
   inner_gap = 1
 }

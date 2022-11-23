@@ -5,7 +5,7 @@ local layout = {
     widgets.workspace, widgets.memory, widgets.music
   },
   right = {
-    widgets.battery, widgets.date, widgets.time, widgets.volume, widgets.backlight, widgets.wifi
+    widgets.battery, widgets.date, widgets.time, widgets.volumebar, widgets.backlight, widgets.wifi
   }
 }
 
