@@ -1,4 +1,4 @@
-local c = require("themes/" .. "catppuccin_macchiato")
+local c = require("themes/" .. "catppuccin_mocha")
 
 local handle = assert(io.popen("xdotool get_num_desktops", "r"))
 local num = assert(handle:read('*a'))
@@ -36,6 +36,10 @@ widgets.workspace = {
     focus = theme.foreground,
     occupied = theme.secondary
   },
+  action = {
+    lclick = "xdotool set_desktop $(lua ./switch-workspace.lua)",
+    rclick = "xdotool set_desktop_for_window $(xdotool getwindowfocus) $(lua ./switch-workspace.lua)$"
+  },
   command = "lua ./workspace.lua",
   len = num + (num + 1) * 1,
   interval = 0.1,
@@ -64,7 +68,7 @@ widgets.time = {
   action = {
     lclick = "kitty tty-clock -s -c -C 5 -D",
   },
-  command = "echo \" $(date \"+%H:%m:%S\")\"",
+  command = "echo \" $(date \"+%H:%M:%S\")\"",
   len = 11,
   interval = 1,
   inner_gap = 1,

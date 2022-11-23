@@ -52,6 +52,10 @@ end
 for _, widget in ipairs(layout.left) do
   I = 0
   width = (2 * widget.inner_gap + widget.len) * (font_size * 1.5)
+  if widget.command == "lua ./workspace.lua" then
+    os.execute("echo " .. x + widget.inner_gap * font_size * 1.5 / 2 .. " > ~/scripts/lemonbar/.x")
+    os.execute("echo " .. width - widget.inner_gap * font_size * 1.5 .. " > ~/scripts/lemonbar/.width")
+  end
   os.execute("while true; do echo \""
     .. actions(widget)
     .. string.rep(' ', widget.inner_gap) .. "$("

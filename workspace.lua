@@ -36,13 +36,13 @@ for i = 0, (num - 1) do
         .. "}%{B#" .. color.background .. "}"
         .. i + 1 .. gaps
   elseif is_in(("%d"):format(i), active) then
-    output = output .. "%{A:xdotool set_desktop " .. i .. ":}%{F#" .. color.occupied
+    output = output .. "%{F#" .. color.occupied
         .. "}%{B#" .. color.background .. "}"
-        .. i + 1 .. gaps .. "%{A}"
+        .. i + 1 .. gaps
   else
-    output = output .. "%{A:xdotool set_desktop " .. i .. ":}%{F#" .. color.foreground
+    output = output .. "%{F#" .. color.foreground
         .. "}%{B#" .. color.background .. "}"
-        .. i + 1 .. gaps .. "%{A}"
+        .. i + 1 .. gaps
 
   end
 end
