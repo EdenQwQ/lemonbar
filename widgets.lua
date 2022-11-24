@@ -55,8 +55,8 @@ widgets.date = {
   action = {
     lclick = "kitty -e calcurse",
   },
-  command = "echo  $(date \"+%y.%m.%d %a\")",
-  len = 15,
+  command = "echo  $(date \"+%m.%d %a\")",
+  len = 12,
   interval = 100,
   inner_gap = 1,
 }
@@ -69,8 +69,8 @@ widgets.time = {
   action = {
     lclick = "kitty tty-clock -s -c -C 5 -D",
   },
-  command = "echo \" $(date \"+%H:%M:%S\")\"",
-  len = 11,
+  command = "echo \" $(date \"+%H:%M\")\"",
+  len = 8,
   interval = 1,
   inner_gap = 1,
 }
@@ -150,12 +150,17 @@ widgets.music = {
   color = {
     foreground = theme.secondary,
     background = theme.background,
-    control = theme.foreground
+    control = theme.foreground,
+    bar = theme.fade2
+  },
+  action = {
+    scrollup = "playerctl position 5+",
+    scrolldown = "playerctl position 5-"
   },
   command = "lua ./music.lua",
   len = 27,
   interval = 0.1,
-  inner_gap = 1
+  inner_gap = 0
 }
 
 widgets.volumebar = {
@@ -174,6 +179,17 @@ widgets.volumebar = {
   command = "lua ./volumebar.lua",
   len = 13,
   interval = 0.1,
+  inner_gap = 1
+}
+
+widgets.cava = {
+  color = {
+    foreground = theme.foreground,
+    background = theme.background
+  },
+  command = "lua ./cava.lua",
+  len = 19,
+  interval = 0,
   inner_gap = 1
 }
 
